@@ -1,0 +1,33 @@
+sudo pip install Twister
+sudo apt-get install build-essential python-dev python-setuptools libboost-python-dev libboost-thread-dev -y
+
+
+from the pyxchange run
+	sudo python setup.py build
+	sudo python setup.py install
+
+
+pip install django==1.11
+
+sudo apt-get install software-properties-common python-software-properties
+sudo apt-get update
+sudo apt-add-repository ppa:bitcoin/bitcoin
+sudo apt-get update
+sudo apt-get install bitcoind
+sudo reboot
+bitcoind
+ctlr + d
+cd to root
+cd ~/.bitcoin
+
+mod something
+
+pip install pyotp
+
+pip install --pre plivo
+
+pip install python-bitcoinrpc
+
+pip install twilio
+
+https://github.com/dyn4mik3/OrderBook
