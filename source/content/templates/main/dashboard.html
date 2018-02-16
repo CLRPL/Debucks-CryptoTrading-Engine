@@ -1,0 +1,613 @@
+{% load staticfiles %}
+{% load i18n %}
+<!DOCTYPE html>
+<!--[if IE 7 ]><html class="ie ie7 lte9 lte8 lte7" lang="en-US"><![endif]-->
+<!--[if IE 8]><html class="ie ie8 lte9 lte8" lang="en-US">	<![endif]-->
+<!--[if IE 9]><html class="ie ie9 lte9" lang="en-US"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="noIE" lang="en-US">
+<!--<![endif]-->
+<head>
+ <title>Debucks</title>
+ <link rel="shortcut icon" href="{% static '/assets/img/favicon.ico' %}" type="image/x-icon" />
+ <!-- meta -->
+ <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no"/>
+
+ <!-- css -->
+ <link rel="stylesheet" href="{% static '/assets/css/bootstrap.min.css' %}"/>
+ <link rel="stylesheet" href="{% static '/assets/css/font-awesome.min.css' %}"/>
+ <link rel="stylesheet" href="{% static '/assets/css/dashboard.css' %}"/>
+ <!-- fonts -->
+ <link rel="stylesheet" type="text/css" href="/path/to/your/fonts/folder/fonts.min.css" />
+ <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+</head>
+<body>
+
+  <header class="top-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-xs-5 col-sm-4 header-logo">
+          <br>
+          <a href="{% url 'index' %}"> 
+            <img src="{% static '/assets/img/logo.png' %}" class="logo-img"/>
+          </a>
+        </div>
+        <div class="col-md-8 col-md-offset-1 col-xs-7">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid nav-bar">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse navbar-def" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav navbar-right header-txt">
+                  <li>
+                    <a href="{% url 'index' %}"><i class="fa fa-home"></i> Home</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'dashboard' %}"><i class="fa fa-bookmark"></i> Dashboard</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'swap' %}"><i class="fa fa-wordpress"></i> Exchange</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'contact_us' %}"><i class="fa fa-tasks"></i> Contact Us</a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Profile</a></li>
+                      <li><a href="{% url 'api' %}">Api</a></li>
+                      <li><a href="{% url 'logout' %}">Logout</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div><!-- /navbar-collapse -->
+            </div><!-- / .container-fluid -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="con-about">
+            <h3>Analyze Your Investments</h3>
+            <br>
+            <p><img src="{% static 'assets/img/portfolio-logo.png' %}"/></p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default panel-primary" >
+            <div class="panel-heading con-heading">Potfolio</div>
+            <div class="panel-body" >
+              <span class="login-to-view"><i class="fa fa-lock"></i> Login To View</span>
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default panel-primary" >
+            <div class="panel-heading con-heading">Holdings</div>
+            <div class="panel-body" >
+              <span class="login-to-view"><i class="fa fa-lock"></i> Login To View</span>
+                <div class="row">
+                  <div class="col-sm-4 col-md-4 col-lg-4  " >
+                    <div class="prot-body prot-body1">
+                      <p> 0.0000 </p>  
+                      <h1> Bitcoin </h1>
+                    </div>  
+                  </div>
+                  <div class="col-sm-4 col-md-4 col-lg-4">
+                    <div class="prot-body prot-body2">
+                      <p> 0.0000 </p>  
+                      <h1> Ethereum </h1>
+                    </div>  
+                  </div>
+                  <div class="col-sm-4 col-md-4 col-lg-4">
+                    <div class="prot-body prot-body3">
+                      <p> 0.0000 </p>  
+                      <h1> Bitcoin Cash </h1>
+                    </div>  
+                  </div>
+                  <div class="col-sm-4 col-md-4 col-lg-4">
+                    <div class="prot-body prot-body3">
+                      <p> 0.0000 </p>  
+                      <h1> Nano </h1>
+                    </div>  
+                  </div>
+                  <div class="col-sm-4 col-md-4 col-lg-4">
+                    <div class="prot-body prot-body1">
+                      <p> 0.0000 </p>  
+                      <h1> Cardano </h1>
+                    </div>  
+                  </div>
+                </div>
+             
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="con-about">
+            <h3>View Your Holdings On Debuck's Wallet</h3>
+            <br>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6">
+          <div class="con-about">
+            <h3>Store Your Crypto Coins In Our Secure Debuck's Wallet</h3>
+            <br>
+            <p><img src="{% static 'assets/img/deposit-logo.png' %}"/></p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default panel-primary">
+            <div class="panel-heading con-heading">Deposit</div>
+            <div class="panel-body">
+              <span class="login-to-view"><i class="fa fa-lock"></i> Login To View</span>
+              <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                  <div class="content content1">
+                    <img src="{% static 'assets/img/bitcoin.png' %}"/ alt="" class="wi-logo">
+                    <h3>Choose Currency</h3>
+                    <p>Bitcoin</p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 qr-body col-centered" >
+                 <img src="{% static 'assets/img/qr.png' %}" class="qr-logo">
+               </div>
+             </div>
+             <div class="row">
+              <div class="col-lg-12 con-form">
+                <form method="post">
+                  <button type="submit" class="btn btn-primary btn-block btn-large">Get Public Key</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-default panel-primary">
+          <div class="panel-heading con-heading">Withdraw</div>
+          <div class="panel-body">
+<span class="login-to-view"><i class="fa fa-lock"></i> Login To View</span>
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="content content2">
+                  <img src="{% static 'assets/img/eth.png' %}"/ alt="" class="wi-logo">
+                  <h3>Choose Currency</h3>
+                  <p>Etherium</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 con-form form-group>
+                <form method="post">
+                  <input type="text" name="with" placeholder="withdrawal amount" />
+                  <input type="text" name="with" placeholder="your withdrawal address" />
+                  <button type="submit" class="btn btn-primary btn-block btn-large">Continue</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="con-about">
+          <h3>Trasfer Your Coins To Your Personal Wallet</h3>
+          <br>
+          <p><img src="{% static 'assets/img/withdraw-logo.png' %}"/></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="transaction-card">
+  <div class="container">
+    <div class="row col-centered">
+      <div class="col-md-12 col-centered">
+        <div class="panel panel-primary">
+          <!-- Default panel contents -->
+          <div class="panel-heading">
+            <h2 class="panel-title con-heading">
+              Transactions
+            </h2>
+          </div>
+          <div class="panel-body">
+            <span class="login-to-view"><i class="fa fa-lock"></i> Login To View</span>
+            <h3>
+              User
+            </h3>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <h4>Account # 1364672</h4>
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Operation date</th>
+                    <th>Transaction ID</th>
+                    <th>Blockchain ID</th>
+                    <th>Coin</th>
+                    <th>Amount</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Wed Nov 10 0:0:0 GMT 20XX</td>
+                    <td>#4654687</td>
+                    <td>h4jhfks93jkg33424</td>
+                    <td>BTC</td>
+                    <td>356.61</td>
+                    <td>Credit</td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+
+<script type="text/javascript">
+  var options = {
+    'backdrop' : 'static'
+  }
+  $('#basicModal').modal(options);
+</script>
+
+<script
+src="http://code.jquery.com/jquery-3.3.1.js"
+integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+
+    Chart.types.Doughnut.extend({
+      name: "DoughnutTextInside",
+      showTooltip: function() {
+        this.chart.ctx.save();
+        Chart.types.Doughnut.prototype.showTooltip.apply(this, arguments);
+        this.chart.ctx.restore();
+      },
+      draw: function() {
+        Chart.types.Doughnut.prototype.draw.apply(this, arguments);
+
+        var width = this.chart.width,
+        height = this.chart.height;
+
+        var fontSize = (height / 114).toFixed(2);
+        this.chart.ctx.font = fontSize + "em Verdana";
+        this.chart.ctx.textBaseline = "middle";
+
+        var text = "$000.000",
+        textX = Math.round((width - this.chart.ctx.measureText(text).width) / 2),
+        textY = height / 2;
+
+        this.chart.ctx.fillText(text, textX, textY);
+      }
+    });
+
+    var data = [{
+      value: 25,
+      color: "#bc5400"
+    }, {
+      value: 25,
+      color: "#417991"
+    }, {
+      value: 25,
+      color: "#430047"
+    }, {
+      value: 25,
+      color: "#23702f"
+    }, {
+      value: 25,
+      color: "#557023"
+    }];
+
+    var DoughnutTextInsideChart = new Chart($('#myChart')[0].getContext('2d')).DoughnutTextInside(data, {
+
+      responsive: true
+    });
+  });
+</script>
+<script>
+  function swap_usd_btc() {
+    var usd_disp1 = document.getElementById("usd_div1");
+    var btc_disp1 = document.getElementById("btc_div1");
+
+    var usd_disp2 = document.getElementById("usd_div2");
+    var btc_disp2 = document.getElementById("btc_div2");
+
+    var usd_disp3 = document.getElementById("usd_div3");
+    var btc_disp3 = document.getElementById("btc_div3");
+
+    if (usd_disp1.style.display === "none") {
+      usd_disp1.style.display = "block";
+      btc_disp1.style.display = "none";
+
+    } else {
+      usd_disp1.style.display = "none";
+      btc_disp1.style.display = "block";
+
+    }
+
+    if (usd_disp2.style.display === "none") {
+      usd_disp2.style.display = "block";
+      btc_disp2.style.display = "none";
+
+    } else {
+      usd_disp2.style.display = "none";
+      btc_disp2.style.display = "block";
+
+    }
+
+    if (usd_disp3.style.display === "none") {
+      usd_disp3.style.display = "block";
+      btc_disp3.style.display = "none";
+
+    } else {
+      usd_disp3.style.display = "none";
+      btc_disp3.style.display = "block";
+
+    }
+
+  }
+</script>
+
+<script type="text/javascript">
+  (function($){
+    $(document).ready(function(){
+      $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
+        event.preventDefault(); 
+        event.stopPropagation(); 
+        $(this).parent().siblings().removeClass('open');
+        $(this).parent().toggleClass('open');
+      });
+    });
+  })(jQuery);
+  /* http://www.bootply.com/nZaxpxfiXz */
+</script>
+<script type="text/javascript">
+      // min and max radius, radius threshold and percentage of filled circles
+      var radMin = 5,
+      radMax = 125,
+  filledCircle = 60, //percentage of filled circles
+  concentricCircle = 30, //percentage of concentric circles
+  radThreshold = 25; //IFF special, over this radius concentric, otherwise filled
+
+//min and max speed to move
+var speedMin = 0.3,
+speedMax = 2.5;
+
+//max reachable opacity for every circle and blur effect
+var maxOpacity = 0.6;
+
+//default palette choice
+var colors = ['52,168,83', '117,95,147', '199,108,23', '194,62,55', '0,172,212', '120,120,120'],
+bgColors = ['52,168,83', '117,95,147', '199,108,23', '194,62,55', '0,172,212', '120,120,120'],
+circleBorder = 10,
+backgroundLine = bgColors[0];
+var backgroundMlt = 0.85;
+
+//min distance for links
+var linkDist = Math.min(canvas.width, canvas.height) / 2.4,
+lineBorder = 2.5;
+
+//most importantly: number of overall circles and arrays containing them
+var maxCircles = 12,
+points = [],
+pointsBack = [];
+
+//populating the screen
+for (var i = 0; i < maxCircles * 2; i++) points.push(new Circle());
+  for (var i = 0; i < maxCircles; i++) pointsBack.push(new Circle(true));
+
+//experimental vars
+var circleExp = 1,
+circleExpMax = 1.003,
+circleExpMin = 0.997,
+circleExpSp = 0.00004,
+circlePulse = false;
+
+//circle class
+function Circle(background) {
+  //if background, it has different rules
+  this.background = (background || false);
+  this.x = randRange(-canvas.width / 2, canvas.width / 2);
+  this.y = randRange(-canvas.height / 2, canvas.height / 2);
+  this.radius = background ? hyperRange(radMin, radMax) * backgroundMlt : hyperRange(radMin, radMax);
+  this.filled = this.radius < radThreshold ? (randint(0, 100) > filledCircle ? false : 'full') : (randint(0, 100) > concentricCircle ? false : 'concentric');
+  this.color = background ? bgColors[randint(0, bgColors.length - 1)] : colors[randint(0, colors.length - 1)];
+  this.borderColor = background ? bgColors[randint(0, bgColors.length - 1)] : colors[randint(0, colors.length - 1)];
+  this.opacity = 0.05;
+  this.speed = (background ? randRange(speedMin, speedMax) / backgroundMlt : randRange(speedMin, speedMax)); // * (radMin / this.radius);
+  this.speedAngle = Math.random() * 2 * Math.PI;
+  this.speedx = Math.cos(this.speedAngle) * this.speed;
+  this.speedy = Math.sin(this.speedAngle) * this.speed;
+  var spacex = Math.abs((this.x - (this.speedx < 0 ? -1 : 1) * (canvas.width / 2 + this.radius)) / this.speedx),
+  spacey = Math.abs((this.y - (this.speedy < 0 ? -1 : 1) * (canvas.height / 2 + this.radius)) / this.speedy);
+  this.ttl = Math.min(spacex, spacey);
+};
+
+Circle.prototype.init = function() {
+  Circle.call(this, this.background);
+}
+
+//support functions
+//generate random int a<=x<=b
+function randint(a, b) {
+  return Math.floor(Math.random() * (b - a + 1) + a);
+}
+  //generate random float
+  function randRange(a, b) {
+    return Math.random() * (b - a) + a;
+  }
+  //generate random float more likely to be close to a
+  function hyperRange(a, b) {
+    return Math.random() * Math.random() * Math.random() * (b - a) + a;
+  }
+
+//rendering function
+function drawCircle(ctx, circle) {
+  //circle.radius *= circleExp;
+  var radius = circle.background ? circle.radius *= circleExp : circle.radius /= circleExp;
+  ctx.beginPath();
+  ctx.arc(circle.x, circle.y, radius * circleExp, 0, 2 * Math.PI, false);
+  ctx.lineWidth = Math.max(1, circleBorder * (radMin - circle.radius) / (radMin - radMax));
+  ctx.strokeStyle = ['rgba(', circle.borderColor, ',', circle.opacity, ')'].join('');
+  if (circle.filled == 'full') {
+    ctx.fillStyle = ['rgba(', circle.borderColor, ',', circle.background ? circle.opacity * 0.8 : circle.opacity, ')'].join('');
+    ctx.fill();
+    ctx.lineWidth=0;
+    ctx.strokeStyle = ['rgba(', circle.borderColor, ',', 0, ')'].join('');
+  }
+  ctx.stroke();
+  if (circle.filled == 'concentric') {
+    ctx.beginPath();
+    ctx.arc(circle.x, circle.y, radius / 2, 0, 2 * Math.PI, false);
+    ctx.lineWidth = Math.max(1, circleBorder * (radMin - circle.radius) / (radMin - radMax));
+    ctx.strokeStyle = ['rgba(', circle.color, ',', circle.opacity, ')'].join('');
+    ctx.stroke();
+  }
+  circle.x += circle.speedx;
+  circle.y += circle.speedy;
+  if (circle.opacity < (circle.background ? maxOpacity : 1)) circle.opacity += 0.01;
+  circle.ttl--;
+}
+
+//initializing function
+function init() {
+  window.requestAnimationFrame(draw);
+}
+
+//rendering function
+function draw() {
+
+  if (circlePulse) {
+    if (circleExp < circleExpMin || circleExp > circleExpMax) circleExpSp *= -1;
+    circleExp += circleExpSp;
+  }
+  var ctxfr = document.getElementById('canvas').getContext('2d');
+  var ctxbg = document.getElementById('canvasbg').getContext('2d');
+
+  ctxfr.globalCompositeOperation = 'destination-over';
+  ctxfr.clearRect(0, 0, canvas.width, canvas.height); // clear canvas
+  ctxbg.globalCompositeOperation = 'destination-over';
+  ctxbg.clearRect(0, 0, canvas.width, canvas.height); // clear canvas
+
+  ctxfr.save();
+  ctxfr.translate(canvas.width / 2, canvas.height / 2);
+  ctxbg.save();
+  ctxbg.translate(canvas.width / 2, canvas.height / 2);
+
+  //function to render each single circle, its connections and to manage its out of boundaries replacement
+  function renderPoints(ctx, arr) {
+    for (var i = 0; i < arr.length; i++) {
+      var circle = arr[i];
+      //checking if out of boundaries
+      if (circle.ttl<0) {}
+        var xEscape = canvas.width / 2 + circle.radius,
+      yEscape = canvas.height / 2 + circle.radius;
+      if (circle.ttl < -20) arr[i].init(arr[i].background);
+      //if (Math.abs(circle.y) > yEscape || Math.abs(circle.x) > xEscape) arr[i].init(arr[i].background);
+      drawCircle(ctx, circle);
+    }
+    for (var i = 0; i < arr.length - 1; i++) {
+      for (var j = i + 1; j < arr.length; j++) {
+        var deltax = arr[i].x - arr[j].x;
+        var deltay = arr[i].y - arr[j].y;
+        var dist = Math.pow(Math.pow(deltax, 2) + Math.pow(deltay, 2), 0.5);
+        //if the circles are overlapping, no laser connecting them
+        if (dist <= arr[i].radius + arr[j].radius) continue;
+        //otherwise we connect them only if the dist is < linkDist
+        if (dist < linkDist) {
+          var xi = (arr[i].x < arr[j].x ? 1 : -1) * Math.abs(arr[i].radius * deltax / dist);
+          var yi = (arr[i].y < arr[j].y ? 1 : -1) * Math.abs(arr[i].radius * deltay / dist);
+          var xj = (arr[i].x < arr[j].x ? -1 : 1) * Math.abs(arr[j].radius * deltax / dist);
+          var yj = (arr[i].y < arr[j].y ? -1 : 1) * Math.abs(arr[j].radius * deltay / dist);
+          ctx.beginPath();
+          ctx.moveTo(arr[i].x + xi, arr[i].y + yi);
+          ctx.lineTo(arr[j].x + xj, arr[j].y + yj);
+          var samecolor = arr[i].color == arr[j].color;
+          ctx.strokeStyle = ["rgba(", arr[i].borderColor, ",", Math.min(arr[i].opacity, arr[j].opacity) * ((linkDist - dist) / linkDist), ")"].join("");
+          ctx.lineWidth = (arr[i].background ? lineBorder * backgroundMlt : lineBorder) * ((linkDist - dist) / linkDist); //*((linkDist-dist)/linkDist);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  var startTime = Date.now();
+  renderPoints(ctxfr, points);
+  renderPoints(ctxbg, pointsBack);
+  deltaT = Date.now() - startTime;
+
+  ctxfr.restore();
+  ctxbg.restore();
+
+  window.requestAnimationFrame(draw);
+}
+
+init();
+
+/*Credits and aknowledgements:
+Original Idea and Design by Luca Luzzatti
+
+Optimizing tips from Benjamin Kästner
+General tips from Salvatore Previti*/
+</script>
+</html>

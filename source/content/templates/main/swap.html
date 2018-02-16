@@ -1,0 +1,190 @@
+{% load staticfiles %}
+{% load i18n %}
+<!DOCTYPE html>
+<!--[if IE 7 ]><html class="ie ie7 lte9 lte8 lte7" lang="en-US"><![endif]-->
+<!--[if IE 8]><html class="ie ie8 lte9 lte8" lang="en-US">	<![endif]-->
+<!--[if IE 9]><html class="ie ie9 lte9" lang="en-US"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="noIE" lang="en-US">
+<!--<![endif]-->
+<head>
+ <title>Debucks</title>
+ <link rel="shortcut icon" href="{% static '/assets/img/favicon.ico' %}" type="image/x-icon" />
+ <!-- meta -->
+ <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no"/>
+
+ <!-- css -->
+ <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"/>
+ <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}"/>
+ <link rel="stylesheet" href="{% static 'assets/css/swap.css' %}"/>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+ <!-- fonts -->
+ <link rel="stylesheet" type="text/css" href="/path/to/your/fonts/folder/fonts.min.css" />
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <header class="top-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-xs-5 col-sm-4 header-logo">
+          <br>
+          <a href="{% url 'index' %}"> 
+            <img src="{% static '/assets/img/logo.png' %}" class="logo-img"/>
+          </a>
+        </div>
+        <div class="col-md-8 col-md-offset-1 col-xs-7">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid nav-bar">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse navbar-def" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav navbar-right header-txt">
+                  <li>
+                    <a href="{% url 'index' %}"><i class="fa fa-home"></i> Home</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'dashboard' %}"><i class="fa fa-bookmark"></i> Dashboard</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'swap' %}"><i class="fa fa-wordpress"></i> Exchange</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'contact_us' %}"><i class="fa fa-tasks"></i> Contact Us</a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Profile</a></li>
+                      <li><a href="#">Support</a></li>
+                      <li><a href="{% url 'api' %}">Api</a></li>
+                      <li><a href="{% url 'logout' %}">Logout</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div><!-- /navbar-collapse -->
+            </div><!-- / .container-fluid -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+<!-- /navbar-collapse 
+  <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Terms And Conditions </h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h3>desc</h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ /navbar-collapse -->
+
+  <section class="con-body">
+    <div class="container">
+     <div class="row">
+
+      <div class="col-sm-10 col-md-6 col-lg-7">
+        <div class="con-about">
+          <h3>We Are The Best And Safest Exchange In The Universe</h3>
+          <br>
+          <p><img src="{% static '/assets/img/coins-logo.png' %}"/></p>
+        </div>
+      </div>
+      <div class="col-sm-5 col-md-6 col-lg-5 card">
+        <div class="row">
+         <div class="panel panel-default panel-primary">
+          <div class="panel-heading con-heading2">Quick Swap</div>
+          <div class="panel-body">
+            <div class="row">  
+              <h1 class="con-heading"> Choose which asset to trade </h1>   
+            </div>
+            <div class="row">
+              <div class="col-sm-3 col-lg-4 col col-left">
+                <div class="row">
+                  <p class="con-title"> Deposit </p>
+                </div>
+                <div class="row">
+                 <img src="{% static '/assets/img/bitcoin.png' %}" class="con-logo" id="myBt"/>
+               </div>
+               <div class="row">
+                <p class="con-name"> Bitcoin </p>
+              </div>
+            </div>
+            <div class="col-sm-3 col-lg-4 col">
+              <div class="row">
+                <p class="con-title"> Withdraw </p>
+              </div>
+              <div class="row">
+                <img src="{% static '/assets/img/eth.png' %}" class="con-logo"/>
+              </div>
+              <div class="row">
+                <p class="con-name"> Etherium </p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 con-form">
+              <form method="post">
+                <button type="submit" class="btn btn-primary btn-block btn-large">Continue</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+</body>
+<script type="text/javascript">
+  var options = {
+    'backdrop' : 'static'
+  }
+  $('#basicModal').modal(options);
+</script>
+<script type="text/javascript">
+  (function($){
+    $(document).ready(function(){
+      $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
+        event.preventDefault(); 
+        event.stopPropagation(); 
+        $(this).parent().siblings().removeClass('open');
+        $(this).parent().toggleClass('open');
+      });
+    });
+  })(jQuery);
+  /* http://www.bootply.com/nZaxpxfiXz */
+</script>
+</html>

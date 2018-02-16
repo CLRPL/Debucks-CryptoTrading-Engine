@@ -1,0 +1,638 @@
+{% load staticfiles %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<!-- Title -->
+	<title>Debucks - Landing Page</title>
+
+	<!-- Favicon -->
+	<link rel="icon" href="{% static '/assets/img/favicon.ico' %}">
+
+	<!-- Core Stylesheet -->
+	<link href="{% static 'style.css' %}" rel="stylesheet">
+
+	<!-- Responsive CSS -->
+	<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+	<!-- Preloader Start -->
+	<div id="preloader">
+		<div class="colorlib-load"></div>
+	</div>
+
+	<!-- ***** Header Area Start ***** -->
+	<header class="header_area animated">
+		<div class="container-fluid">
+			<div class="row align-items-center">
+				<!-- Menu Area Start -->
+				<div class="col-12 col-lg-10">
+					<div class="menu_area">
+						<nav class="navbar navbar-expand-lg navbar-light">
+							<!-- Logo -->
+							<a class="navbar-brand" href="{% url 'logout' %}">Debucks.io</a>
+							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ca-navbar" aria-controls="ca-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+							<!-- Menu Area -->
+							<div class="collapse navbar-collapse" id="ca-navbar">
+								<ul class="navbar-nav ml-auto" id="nav">
+									<li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+									{% if request.user.is_authenticated %}
+									<li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li>
+									<li class="nav-item"><a class="nav-link" href="{% url 'swap' %}">Exchange</a></li>
+
+									{% else %}
+
+									{% endif %}
+									<li class="nav-item"><a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a></li>
+								</ul>
+
+								<div class="sing-up-button d-lg-none">
+									<a href="{% url 'login' %}">Login</a>
+								</div>
+
+							</div>
+						</nav>
+					</div>
+				</div>
+				{% if request.user.is_authenticated %}
+				<!-- Signup btn -->
+				<div class="col-12 col-lg-2">
+					<div class="sing-up-button d-none d-lg-block">
+						<a href="{% url 'logout' %}">Logout</a>
+					</div>
+				</div>
+				{% else %}
+				<!-- Signup btn -->
+				<div class="col-12 col-lg-2">
+					<div class="sing-up-button d-none d-lg-block">
+						<a href="{% url 'login' %}">Login / SignUp</a>
+					</div>
+				</div>
+
+				{% endif %}
+			</div>
+		</div>
+	</header>
+	<!-- ***** Header Area End ***** -->
+
+	<!-- ***** Wellcome Area Start ***** -->
+	<section class="wellcome_area clearfix" id="home">
+		<div class="container h-100">
+			<div class="row h-100 align-items-center">
+				<div class="col-12 col-md">
+					<div class="wellcome-heading">
+						<h2>Debucks Platform</h2>
+						<h3>D</h3>
+						<p>Everything You Need: To Start Trading Crypto Currencies</p>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<!-- Welcome thumb -->
+		<div class="welcome-thumb wow fadeInDown" data-wow-delay="0.5s">
+			<img src="{% static 'img/bg-img/logo.png' %}" alt="" style="transform: rotate(0deg);">
+		</div>
+	</section>
+	<!-- ***** Wellcome Area End ***** -->
+
+	<!-- ***** Special Area Start ***** -->
+	<section class="special-area section_padding_100" id="about" style="background-color: #243859;">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<!-- Section Heading Area -->
+					<div class="section-heading text-center">
+						<h2>Why Debuck's ?</h2>
+						<div class="line-shape"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<!-- Single Special Area -->
+				<div class="col-12 col-md-4">
+					<div class="single-special text-center wow fadeInUp" data-wow-delay="0.2s">
+						<div class="single-icon">
+							<i class="ti-mobile" aria-hidden="true"></i>
+						</div>
+						<h4>100% Privacy</h4>
+						<p>Use Our Professonal Trading Platform With Just Email And Password</p>
+					</div>
+				</div>
+				<!-- Single Special Area -->
+				<div class="col-12 col-md-4">
+					<div class="single-special text-center wow fadeInUp" data-wow-delay="0.4s">
+						<div class="single-icon">
+							<i class="ti-ruler-pencil" aria-hidden="true"></i>
+						</div>
+						<h4>Secure</h4>
+						<p>We Use Breakthrough Technology To Make Our Trading Platform Is Secure</p>
+					</div>
+				</div>
+				<!-- Single Special Area -->
+				<div class="col-12 col-md-4">
+					<div class="single-special text-center wow fadeInUp" data-wow-delay="0.6s">
+						<div class="single-icon">
+							<i class="ti-settings" aria-hidden="true"></i>
+						</div>
+						<h4>Open Source</h4>
+						<p>View, Contribute And Use Our Debucks Source Code</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Special Description Area -->
+		<div class="special_description_area mt-150">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="special_description_img">
+							<img src="{% static 'img/bg-img/special.png' %}" alt="">
+						</div>
+					</div>
+					<div class="col-lg-6 col-xl-5 ml-xl-auto">
+						<div class="special_description_content">
+							<h2>One Platform for all devices!</h2>
+
+							<div class="app-download-area">
+								<div class="app-download-btn wow fadeInUp" data-wow-delay="0.2s">
+									<!-- Google Store Btn -->
+									<a href="#">
+										<i class="fa fa-android"></i>
+										<p class="mb-0"><span>Coming soon</span> Google Store</p>
+									</a>
+								</div>
+								<div class="app-download-btn wow fadeInDown" data-wow-delay="0.4s">
+									<!-- Apple Store Btn -->
+									<a href="#">
+										<i class="fa fa-apple"></i>
+										<p class="mb-0"><span>Coming soon</span> Apple Store</p>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ***** Special Area End ***** -->
+
+	<!-- ***** Awesome Features Start ***** -->
+	<section class="awesome-feature-area section_padding_0_50 clearfix" id="features" style="background-color: #243859;">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<!-- Heading Text -->
+					<div class="section-heading text-center">
+						<h2>Awesome Features</h2>
+						<div class="line-shape"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<!-- Single Feature Start -->
+				<div class="col-12 col-sm-6 col-lg-4">
+					<div class="single-feature">
+						<i class="ti-user" aria-hidden="true"></i>
+						<h5>Awesome Experience</h5>
+						<p>Our Debuck's Platform Is User Friendly</p>
+					</div>
+				</div>
+				<!-- Single Feature Start -->
+				<div class="col-12 col-sm-6 col-lg-4">
+					<div class="single-feature">
+						<i class="ti-pulse" aria-hidden="true"></i>
+						<h5>Fast and Instant</h5>
+						<p>With Our Debucks Plaftform Trading Crypto's Is Fast And Instant</p>
+					</div>
+				</div>
+				<!-- Single Feature Start -->
+				<div class="col-12 col-sm-6 col-lg-4">
+					<div class="single-feature">
+						<i class="ti-dashboard" aria-hidden="true"></i>
+						<h5>Privacy Maintained</h5>
+						<p>Use Our Debuck's Platform With Just Your Email And Password</p>
+					</div>
+				</div>
+				<!-- Single Feature Start -->
+				<div class="col-12 col-sm-6 col-lg-4">
+					<div class="single-feature">
+						<i class="ti-palette" aria-hidden="true"></i>
+						<h5>Secure</h5>
+						<p>We Use Breakthrough Techonology To Secure Debuck's Platform from Several Attack Vectors</p>
+					</div>
+				</div>
+				<!-- Single Feature Start -->
+				<div class="col-12 col-sm-6 col-lg-4">
+					<div class="single-feature">
+						<i class="ti-crown" aria-hidden="true"></i>
+						<h5>Open Source Code</h5>
+						<p>Our Enitire Code Is Open Source And You Can Contribute To Our Trading Engine</p>
+					</div>
+				</div>
+				<!-- Single Feature Start -->
+				<div class="col-12 col-sm-6 col-lg-4">
+					<div class="single-feature">
+						<i class="ti-headphone" aria-hidden="true"></i>
+						<h5>24/7 Online Support</h5>
+						<p>Get Our Support Services Any Time And Any Day</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!-- ***** Awesome Features End ***** -->
+
+	<!-- ***** Video Area Start ***** -->
+	<div class="video-section" style="background-color: #243859;">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<!-- Video Area Start -->
+					<div class="video-area" style="background-image: url({% static 'img/bg-img/video.png' %});">
+						<div class="video-play-btn">
+							<a href="https://www.youtube.com/watch?v=f5BBJ4ySgpo" class="video_btn"><i class="fa fa-play" aria-hidden="true"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ***** Video Area End ***** -->
+
+    <!-- ***** Cool Facts Area Start ***** 
+    <section class="cool_facts_area clearfix" >
+        <div class="container">
+            <div class="row">
+                 
+                <div class="col-12 col-md-3 col-lg-3">
+                    <div class="single-cool-fact d-flex justify-content-center wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="counter-area">
+                            <h3><span class="counter">190</span></h3>
+                        </div>
+                        <div class="cool-facts-content">
+                            <i class="ion-arrow-down-a"></i>
+                            <p>APP <br> DOWNLOADS</p>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col-12 col-md-3 col-lg-3">
+                    <div class="single-cool-fact d-flex justify-content-center wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="counter-area">
+                            <h3><span class="counter">12000</span></h3>
+                        </div>
+                        <div class="cool-facts-content">
+                            <i class="ion-happy-outline"></i>
+                            <p>Happy <br> Clients</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-3 col-lg-3">
+                    <div class="single-cool-fact d-flex justify-content-center wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="counter-area">
+                            <h3><span class="counter">4230</span></h3>
+                        </div>
+                        <div class="cool-facts-content">
+                            <i class="ion-person"></i>
+                            <p>ACTIVE <br>ACCOUNTS</p>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col-12 col-md-3 col-lg-3">
+                    <div class="single-cool-fact d-flex justify-content-center wow fadeInUp" data-wow-delay="0.8s">
+                        <div class="counter-area">
+                            <h3><span class="counter">1042</span></h3>
+                        </div>
+                        <div class="cool-facts-content">
+                            <i class="ion-ios-star-outline"></i>
+                            <p>EXCHANGE <br> PER SECOND</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    ***** Cool Facts Area End ***** -->
+
+    <!-- ***** App Screenshots Area Start ***** 
+    <section class="app-screenshots-area bg-white section_padding_0_100 clearfix" id="screenshot">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    
+                    <div class="section-heading">
+                        <h2>WebApp and App Screenshots</h2>
+                        <div class="line-shape"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                   
+                    <div class="app_screenshots_slides owl-carousel">
+                        <div class="single-shot">
+                            <img src="img/scr-img/app-1.jpg" alt="">
+                        </div>
+                        <div class="single-shot">
+                            <img src="img/scr-img/app-2.jpg" alt="">
+                        </div>
+                        <div class="single-shot">
+                            <img src="img/scr-img/app-3.jpg" alt="">
+                        </div>
+                        <div class="single-shot">
+                            <img src="img/scr-img/app-4.jpg" alt="">
+                        </div>
+                        <div class="single-shot">
+                            <img src="img/scr-img/app-5.jpg" alt="">
+                        </div>
+                        <div class="single-shot">
+                            <img src="img/scr-img/app-3.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    ***** App Screenshots Area End *****====== -->
+
+    <section style="min-height: 200px; background-color: #243859;">
+
+    </section>
+    <!-- ***** Pricing Plane Area Start *****==== 
+    <section class="pricing-plane-area section_padding_100_70 clearfix" id="pricing" style="background-color: #243859;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                   
+                    <div class="section-heading text-center">
+                        <h2>Commission Rates<h2>
+                        <div class="line-shape"></div>
+                    </div>
+                </div>
+            </div>
+ 
+            <div class="row no-gutters cd">
+                <div class="col-12 col-md-6 col-lg-3">
+                  
+                    <div class="single-price-plan text-center">
+                      
+                        <div class="package-plan">
+                            <h5>Starter Plan</h5>
+                            <div class="ca-price d-flex justify-content-center">
+                                <span>BTC</span>
+                                <h4>0</h4>
+                            </div>
+                        </div>
+                        <div class="package-description">
+                            <p>Unlimited Deposit</p>
+                            <p>Unlimited Withdraw</p>
+                            <p>Exchange Crypto To Crypto</p>
+                            <p>Use our Trading plaftform 24/7</p>
+                            <p style="text-decoration: line-through;">24/7 Support</p>
+                            <p style="text-decoration: line-through;">Get Trading Signals</p>
+                            <p style="text-decoration: line-through;">Priority Exchange</p>
+                            <p style="text-decoration: line-through;">Low Commission Rates</p>
+                        </div>
+                       
+                        <div class="plan-button">
+                            <a href="#">Select Plan</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                   
+                    <div class="single-price-plan text-center">
+                       
+                        <div class="package-plan">
+                            <h5>Basic Plan</h5>
+                            <div class="ca-price d-flex justify-content-center">
+                                <span>BTC</span>
+                                <h4>10</h4>
+                            </div>
+                        </div>
+                        <div class="package-description">
+                            <p>Unlimited Deposit</p>
+                            <p>Unlimited Withdraw</p>
+                            <p>Exchange Crypto To Crypto</p>
+                            <p>Use our Trading plaftform 24/7</p>
+                            <p>24/7 Support</p>
+                            <p style="text-decoration: line-through;">Get Trading Signals</p>
+                            <p style="text-decoration: line-through;">Priority Exchange</p>
+                            <p style="text-decoration: line-through;">Low Commission Rates</p>
+                        </div>
+                     
+                        <div class="plan-button">
+                            <a href="#">Select Plan</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                  
+                    <div class="single-price-plan active text-center">
+                      
+                        <div class="package-plan">
+                            <h5>Advenced Plan</h5>
+                            <div class="ca-price d-flex justify-content-center">
+                                <span>BTC</span>
+                                <h4>100</h4>
+                            </div>
+                        </div>
+                        <div class="package-description">
+                            <p>Unlimited Deposit</p>
+                            <p>Unlimited Withdraw</p>
+                            <p>Exchange Crypto To Crypto</p>
+                            <p>Use our Trading plaftform 24/7</p>
+                            <p>24/7 Support</p>
+                            <p>Get Trading Signals</p>
+                            <p style="text-decoration: line-through;">Priority Exchange</p>
+                            <p style="text-decoration: line-through;">Low Commission Rates</p>
+                        </div>
+                     
+                        <div class="plan-button">
+                            <a href="#">Select Plan</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                  
+                    <div class="single-price-plan text-center">
+                    
+                        <div class="package-plan">
+                            <h5>Community Plan</h5>
+                            <div class="ca-price d-flex justify-content-center">
+                                <span>BTC</span>
+                                <h4>1000</h4>
+                            </div>
+                        </div>
+                        <div class="package-description">
+                            <p>Unlimited Deposit</p>
+                            <p>Unlimited Withdraw</p>
+                            <p>Exchange Crypto To Crypto</p>
+                            <p>Use our Trading plaftform 24/7</p>
+                            <p>24/7 Support</p>
+                            <p>Get Trading Signals</p>
+                            <p>Priority Exchange</p>
+                            <p>Low Commission Rates</p>
+                        </div>
+                     
+                        <div class="plan-button">
+                            <a href="#">Select Plan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    ***** Pricing Plane Area End ***** -->
+
+    
+
+    <!-- ***** CTA Area Start ***** -->
+    <section class="our-monthly-membership section_padding_50 clearfix" >
+    	<div class="container">
+    		<div class="row align-items-center">
+    			<div class="col-md-8">
+    				<div class="membership-description">
+    					<h2>Become a part of us!</h2>
+    					<p>Trade on our plaftform and get 100% satisfaction guaranteed.</p>
+    				</div>
+    			</div>
+    			<div class="col-md-4">
+    				<div class="get-started-button wow bounceInDown" data-wow-delay="0.5s">
+    					<a href="#">SignUp</a>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+    <!-- ***** CTA Area End ***** -->
+
+
+    <!-- ***** Contact Us Area Start ***** -->
+    <section class="footer-contact-area section_padding_100 clearfix" id="contact" style="background-color: #243859;">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-6">
+    				<!-- Heading Text  --> 
+    				<div class="section-heading">
+    					<h2>Contact our support!</h2>
+    					<div class="line-shape"></div>
+    				</div>
+    				<div class="footer-text">
+    					<p>Reach Us Anytime</p>
+    				</div>
+    				<div class="address-text">
+    					<p><span>Telegram:</span> t.me/something</p>
+    				</div>
+    				<div class="phone-text">
+    					<p><span>Bit Message:</span> BM-something</p>
+    				</div>
+    				<div class="email-text">
+    					<p><span>Email:</span> info@debucks.io </p>
+    				</div>
+    			</div>
+    			<div class="col-md-6">
+    				<!-- Form Start-->
+    				<div class="contact_from">
+    					<form action="#" method="post">
+    						<!-- Message Input Area Start -->
+    						<div class="contact_input_area">
+    							<div class="row">
+    								<!-- Single Input Area Start -->
+    								<div class="col-md-12">
+    									<div class="form-group">
+    										<input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required>
+    									</div>
+    								</div>
+    								<!-- Single Input Area Start -->
+    								<div class="col-md-12">
+    									<div class="form-group">
+    										<input type="email" class="form-control" name="email" id="email" placeholder="Your E-mail" required>
+    									</div>
+    								</div>
+    								<!-- Single Input Area Start -->
+    								<div class="col-12">
+    									<div class="form-group">
+    										<textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Your Message *" required></textarea>
+    									</div>
+    								</div>
+    								<!-- Single Input Area Start -->
+    								<div class="col-12">
+    									<button type="submit" class="btn submit-btn">Send Now</button>
+    								</div>
+    							</div>
+    						</div>
+    						<!-- Message Input Area End -->
+    					</form>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+    <!-- ***** Contact Us Area End ***** -->
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-social-icon text-center section_padding_70 clearfix" style="background-color: #243859;"> 
+    	<!-- footer logo -->
+    	<div class="footer-text">
+    		<h2>Debucks.io</h2>
+    	</div>
+
+    	<div class="footer-menu">
+    		<nav>
+    			<ul>
+    				<li><a href="#">About</a></li>
+    				<li><a href="#">Terms &amp; Conditions</a></li>
+    				<li><a href="#">API</a></li>
+    				<li><a href="#">Contact</a></li>
+    			</ul>
+    		</nav>
+    	</div>
+    	<!-- Foooter Text-->
+    	<div class="copyright-text">
+    		<p>Copyright ©2017 Debucks. Software by <a href="https://cohomologylabs.tech" target="_blank">Cohomology Labs</a></p>
+    	</div>
+    </footer>
+    <!-- ***** Footer Area Start ***** -->
+
+    <!-- Jquery-2.2.4 JS -->
+    <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <!-- Bootstrap-4 Beta JS -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- All Plugins JS -->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- Slick Slider Js-->
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <!-- Footer Reveal JS -->
+    <script src="{% static 'js/footer-reveal.min.js' %}"></script>
+    <!-- Active JS -->
+    <script src="{% static 'js/active.js' %}"></script>
+</body>
+
+</html>
+
+{% if messages %}
+<div class="container-fluid mt-3">
+	{% include 'bootstrap4/messages.html' %}
+</div>
+{% endif %}

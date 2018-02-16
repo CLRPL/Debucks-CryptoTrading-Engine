@@ -1,0 +1,19 @@
+{% include 'layouts/default/head.html' %}
+
+{% load i18n %}
+
+<div class="container-fluid mt-3">
+
+    <h4>{% trans 'Logged out' %}</h4>
+
+    <p>
+        {% trans 'Thanks for spending some quality time with the Web site today.' %}
+    </p>
+
+    <p>
+        <a href="{% url 'login' %}">{% trans 'Log in again' %}</a>
+    </p>
+
+</div>
+
+{% include 'layouts/default/foot.html' %}

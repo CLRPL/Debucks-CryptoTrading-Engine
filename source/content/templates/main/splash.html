@@ -1,0 +1,51 @@
+ {% load staticfiles %}
+{% load i18n %}
+<!DOCTYPE html>
+<!--[if IE 7 ]><html class="ie ie7 lte9 lte8 lte7" lang="en-US"><![endif]-->
+<!--[if IE 8]><html class="ie ie8 lte9 lte8" lang="en-US">  <![endif]-->
+<!--[if IE 9]><html class="ie ie9 lte9" lang="en-US"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="noIE" lang="en-US">
+<!--<![endif]-->
+<head>
+ <title>Debucks</title>
+ <link rel="shortcut icon" href="{% static '/assets/img/favicon.ico' %}" type="image/x-icon" />
+ <!-- meta -->
+ <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no"/>
+
+ <!-- css -->
+ <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"/>
+ <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}"/>
+
+ <!-- fonts -->
+ <link rel="stylesheet" type="text/css" href="{% static 'assets/css/splash.css' %}" />
+</head>
+<body>
+  <div id="loading" class="centered">
+    <svg viewBox="0 0 960 300" class="centered">
+      <symbol id="s-text">
+        <text text-anchor="middle" x="50%" y="80%">Debucks.io </text>
+      </symbol>
+      <g class = "g-ants">
+        <use xlink:href="#s-text" class="text-copy"></use>
+        <use xlink:href="#s-text" class="text-copy"></use>
+        <use xlink:href="#s-text" class="text-copy"></use>
+        <use xlink:href="#s-text" class="text-copy"></use>
+        <use xlink:href="#s-text" class="text-copy"></use>
+      </g>
+    </svg>
+  </div>
+  <script language="javascript" type="text/javascript">
+   window.onload = function(){ 
+      var delayInMilliseconds = 2000; //1 second
+
+      setTimeout(function() {
+        window.open("./dashboard.html","__self");
+      }, delayInMilliseconds);
+      
+    }
+  </script>
+</body>
+</html>
